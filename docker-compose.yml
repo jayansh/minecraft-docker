@@ -1,0 +1,17 @@
+---
+version: '3.3'
+services:
+  minecraft-server:
+    image: sirplexus/minecraft-server-standalone:latest
+    volumes:
+      - ./minecraft-volume:/minecraft-server
+    ports:
+      - "25565:25565"
+      - "80:25565"
+    restart: always
+    environment:
+      RAM: '1G'
+#    command: "java -jar target/minecraft-server-1.15.2.jar nogui"
+    network_mode: "bridge"
+volumes:
+ minecraft-volume:
